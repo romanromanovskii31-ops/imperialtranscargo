@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IMPERIAL TRANS CARGO</title>
+
+<style>
+body{margin:0;font-family:Arial;background:#0b1220;color:#fff;text-align:center}
+.header{padding:20px}
+.main{font-size:28px;color:#f2d27a;font-weight:bold}
+.sub{font-size:14px;opacity:.6}
+.hero{padding:60px}
+.lang{position:absolute;top:10px;right:10px}
+.lang button{margin:2px;padding:5px 10px;border:none;border-radius:5px;cursor:pointer}
+input{display:block;margin:10px auto;padding:10px;width:250px;border-radius:6px;border:none}
+.btn{padding:12px 25px;background:#f2d27a;color:#000;border-radius:20px;margin:10px;border:none}
+</style>
+</head>
+
+<body>
+
+<div class="lang">
+<button onclick="setLang('ru')">RU</button>
+<button onclick="setLang('en')">EN</button>
+</div>
+
+<div class="header">
+<div class="main">ИМПЕРИАЛ</div>
+<div class="sub">TRANS CARGO</div>
+</div>
+
+<div class="hero">
+<h1 id="title">Международные грузоперевозки</h1>
+<p id="geo">Европа • СНГ • Азия</p>
+
+<input id="name" placeholder="Имя">
+<input id="phone" placeholder="Телефон">
+<input id="cargo" placeholder="Груз">
+
+<button class="btn" id="btn">Отправить</button>
+
+<a class="btn" href="https://wa.me/79103273958">WhatsApp</a>
+<a class="btn" href="https://t.me/imperialcargo">Telegram</a>
+<a class="btn" href="mailto:romanromanovskii31@gmail.com">Почта</a>
+
+</div>
+
+<script>
+function setLang(lang){
+if(lang==='en'){
+document.getElementById('title').innerText="International cargo transportation";
+document.getElementById('geo').innerText="Europe • CIS • Asia";
+document.getElementById('btn').innerText="Send";
+}else{
+document.getElementById('title').innerText="Международные грузоперевозки";
+document.getElementById('geo').innerText="Европа • СНГ • Азия";
+document.getElementById('btn').innerText="Отправить";
+}
+}
+</script>
+
+</body>
+</html>
