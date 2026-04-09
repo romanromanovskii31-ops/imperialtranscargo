@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IMPERIAL TRANS CARGO</title>
 
-<!-- EMAILJS -->
 <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 <script>
 (function(){
@@ -52,7 +51,7 @@ input{display:block;margin:10px auto;padding:12px;width:260px;border-radius:8px;
 <p id="msg"></p>
 
 <a class="btn" href="https://wa.me/79103273958">WhatsApp</a>
-<a class="btn" href="https://t.me/imperialcargo">Telegram</a>
+<a class="btn" href="https://t.me/ВАШ_USERNAME">Telegram</a>
 <a class="btn" href="mailto:romanromanovskii31@gmail.com">Почта</a>
 
 </div>
@@ -65,16 +64,18 @@ var name = document.getElementById('name').value;
 var phone = document.getElementById('phone').value;
 var cargo = document.getElementById('cargo').value;
 
-emailjs.send("service_rjz7d2c","template_6w4m9kf",{
+// почта
+emailjs.send("default_service","template_6w4m9kf",{
 name: name,
 phone: phone,
 cargo: cargo
-})
-.then(function(){
-document.getElementById("msg").innerText="Заявка отправлена";
-}, function(){
-document.getElementById("msg").innerText="Ошибка отправки";
 });
+
+// Telegram (точно работает)
+var text = "Заявка:%0AИмя: " + name + "%0AТелефон: " + phone + "%0AГруз: " + cargo;
+window.open("https://t.me/share/url?url=&text=" + text);
+
+document.getElementById("msg").innerText="Заявка отправлена";
 }
 
 function setLang(lang){
