@@ -64,16 +64,16 @@ var name = document.getElementById('name').value;
 var phone = document.getElementById('phone').value;
 var cargo = document.getElementById('cargo').value;
 
-// почта
-emailjs.send("default_service","template_6w4m9kf",{
+// Email (как было у тебя)
+emailjs.send("service_rjz7d2c","template_6w4m9kf",{
 name: name,
 phone: phone,
 cargo: cargo
 });
 
-// Telegram (точно работает)
+// Telegram (чтобы точно не потерять заявку)
 var text = "Заявка:%0AИмя: " + name + "%0AТелефон: " + phone + "%0AГруз: " + cargo;
-window.open("https://t.me/share/url?url=&text=" + text);
+window.open("https://t.me/share/url?text=" + text);
 
 document.getElementById("msg").innerText="Заявка отправлена";
 }
