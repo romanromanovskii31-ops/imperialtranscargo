@@ -5,16 +5,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IMPERIAL TRANS CARGO</title>
 
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+emailjs.init("iBgRJG8GNtKKEUoBM");
+})();
+</script>
+
 <style>
 body{margin:0;font-family:Arial;background:#0b1220;color:#fff;text-align:center}
 .header{padding:20px}
 .main{font-size:28px;color:#f2d27a;font-weight:bold}
 .sub{font-size:14px;opacity:.6}
-.hero{padding:60px}
+.hero{padding:60px 20px}
 .lang{position:absolute;top:10px;right:10px}
 .lang button{margin:2px;padding:5px 10px;border:none;border-radius:5px;cursor:pointer}
-input{display:block;margin:10px auto;padding:10px;width:250px;border-radius:6px;border:none}
-.btn{padding:12px 25px;background:#f2d27a;color:#000;border-radius:20px;margin:10px;border:none}
+input{display:block;margin:10px auto;padding:12px;width:260px;border-radius:8px;border:none}
+.btn{padding:12px 25px;background:#f2d27a;color:#000;border-radius:25px;border:none;cursor:pointer;margin:10px}
 </style>
 </head>
 
@@ -34,11 +41,14 @@ input{display:block;margin:10px auto;padding:10px;width:250px;border-radius:6px;
 <h1 id="title">Международные грузоперевозки</h1>
 <p id="geo">Европа • СНГ • Азия</p>
 
+<form onsubmit="sendForm(event)">
 <input id="name" placeholder="Имя">
 <input id="phone" placeholder="Телефон">
 <input id="cargo" placeholder="Груз">
-
 <button class="btn" id="btn">Отправить</button>
+</form>
+
+<p id="msg"></p>
 
 <a class="btn" href="https://wa.me/79103273958">WhatsApp</a>
 <a class="btn" href="https://t.me/imperialcargo">Telegram</a>
@@ -47,6 +57,25 @@ input{display:block;margin:10px auto;padding:10px;width:250px;border-radius:6px;
 </div>
 
 <script>
+function sendForm(e){
+e.preventDefault();
+
+var name = document.getElementById('name').value;
+var phone = document.getElementById('phone').value;
+var cargo = document.getElementById('cargo').value;
+
+emailjs.send("default_service","template_6w4m9kf",{
+name: name,
+phone: phone,
+cargo: cargo
+})
+.then(function(){
+document.getElementById("msg").innerText="Заявка отправлена";
+}, function(){
+document.getElementById("msg").innerText="Ошибка отправки";
+});
+}
+
 function setLang(lang){
 if(lang==='en'){
 document.getElementById('title').innerText="International cargo transportation";
