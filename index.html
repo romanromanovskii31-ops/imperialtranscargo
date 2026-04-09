@@ -5,13 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>IMPERIAL TRANS CARGO</title>
 
-<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-<script>
-(function(){
-emailjs.init("iBgRJG8GNtKKEUoBM");
-})();
-</script>
-
 <style>
 body{margin:0;font-family:Arial;background:#0b1220;color:#fff;text-align:center}
 .header{padding:20px}
@@ -64,16 +57,11 @@ var name = document.getElementById('name').value;
 var phone = document.getElementById('phone').value;
 var cargo = document.getElementById('cargo').value;
 
-emailjs.send("default_service","template_6w4m9kf",{
-name: name,
-phone: phone,
-cargo: cargo
-})
-.then(function(){
-document.getElementById("msg").innerText="Заявка отправлена";
-}, function(){
-document.getElementById("msg").innerText="Ошибка отправки";
-});
+var text = "Заявка:%0AИмя: " + name + "%0AТелефон: " + phone + "%0AГруз: " + cargo;
+
+window.open("https://t.me/imperialcargo?text=" + text);
+
+document.getElementById("msg").innerText="Открыт Telegram";
 }
 
 function setLang(lang){
